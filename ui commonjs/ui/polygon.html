@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<script type="text/javascript" src="scripts/polygon.js"></script>
+<script type="text/javascript" src="scripts/clip-path-generator.js"></script>
+<style>
+body, html {
+	margin: 0px;
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #222 url(images/background.png);
+}
+.hide-markers .marker {
+	display: none;
+}
+.marker {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	margin-left: -5px;
+	margin-top: -5px;
+	background: #912;
+	border-radius: 10px;
+
+	cursor: move;
+}
+
+.hide-lines .marker-line {
+	display: none;
+}
+
+.marker-line {
+	position: absolute; /* allows to position it anywhere */
+	height: 2px; /* your chosen line width */
+	margin-top: -2px;
+	background: #912;
+	/* make sure this is above your other elements */
+	-webkit-transform-origin: 0 100%;
+	-moz-transform-origin:0 100%;
+	-o-transform-origin: 0 100%;
+	-ms-transform-origin: 0 100%;
+	transform-origin: 0 100%;
+}
+
+#clip-circle {
+	position: absolute;
+	display: none;
+	background: rgba(255,255,255,0);
+	cursor: move;
+}
+
+#tools-panel {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0px 0px 3px #0009;
+}
+
+#tools-panel a {
+	border-right: 1px solid #222;
+	padding: 0px 10px;
+}
+
+</style>
+</head>
+<body>
+<div id="polygon">
+	<div id="working-area">
+		<div id="preview-img-wrap"  ondragover="return false;" >
+		<img id="preview-img" src="images/jfk.jpg" />
+		<span id="clip-circle"></span>
+	</div>
+</div>
+</div>
+
+<div id="tools-panel">
+	<a onclick="alert(JSON.stringify(clipMarkers))">Export</a>
+	<a id="show-markers-btn">Toggle markers</a>
+	<a id="remove-marker-lnk">Delete marker</a>
+
+	Left <input type="text" name="selected-marker-left" class="position-input" id="selected-marker-left" value="" />
+	Top <input type="text" name="selected-marker-top" class="position-input" id="selected-marker-top" value="" />
+</div>
+
+<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<clipPath id="clipPolygon"><polygon id="clipPoints" points=""></polygon></clipPath>
+</svg>
+<div class="clr"></div>
+</body>
+</html>

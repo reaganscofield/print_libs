@@ -1,0 +1,135 @@
+@import '../../styles/mixins';
+
+.home-default-page {
+
+
+  .hide-markers .marker {
+    display: none;
+  }
+  .marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    background: #912;
+    border-radius: 10px;
+  
+    cursor: move;
+  }
+  
+  .hide-lines .marker-line {
+    display: none;
+  }
+  
+  .marker-line {
+    position: absolute; /* allows to position it anywhere */
+    height: 2px; /* your chosen line width */
+    margin-top: -2px;
+    background: #912;
+    /* make sure this is above your other elements */
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin:0 100%;
+    -o-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  
+  #clip-circle {
+    position: absolute;
+    display: none;
+    background: rgba(255,255,255,0);
+    cursor: move;
+  }
+  
+  #tools-panel {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 3px #0009;
+  }
+  
+  #tools-panel a {
+    border-right: 1px solid #222;
+    padding: 0px 10px;
+  }
+
+
+
+  text-align: center;
+  .app {
+    text-align: center;
+  }
+
+  .app-logo {
+    animation: app-logo-spin infinite 10s linear;
+    height: 80px;
+  }
+
+  .rekit-logo {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0.08;
+    height: 190px;
+  }
+
+  .app-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .app-title {
+    font-size: 1.5em;
+  }
+
+  .app-intro {
+    font-size: large;
+  }
+
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    margin-top: 20px;
+  }
+  li {
+    margin-top: 10px;
+  }
+
+  a {
+    color: #0288d1;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p.memo {
+    width: 500px;
+    color: #999;
+    font-size: 12px;
+    line-height: 150%;
+    margin: auto;
+  }
+
+  @keyframes app-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
